@@ -6,7 +6,7 @@ async function demo() {
   try {
     // 在线logo示例
     const onlineLogo =
-      "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png";
+      "https://www.guibook.com/upload/image/202005/15908056758211805.jpg";
 
     // 本地logo示例
     const localLogo = join(__dirname, "logo.png");

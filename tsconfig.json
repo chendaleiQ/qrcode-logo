@@ -10,7 +10,8 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "declarationMap": false
+    "declarationMap": false,
+    "composite": false
   },
   "include": [
     "src/**/*"
