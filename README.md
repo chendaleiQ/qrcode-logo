@@ -1,16 +1,16 @@
-# qrcode-with-logo
+# qrcode-in-logo
 
 一个支持添加 logo 的二维码生成器，支持nodejs。
 
 ## 安装
 
 ```bash
-npm install qrcode-with-logo
+npm install qrcode-in-logo
 ```
 
 ## 使用方法
 ```
-import { generateQRCode } from '@chendaleiq/qrcode-logo';
+import { generateQRCode } from 'qrcode-in-logo';
 import { writeFileSync } from 'fs';
 
 async function example() {

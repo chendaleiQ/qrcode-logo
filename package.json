@@ -1,5 +1,5 @@
 {
-  "name": "qrcode-logo",
+  "name": "qrcode-in-logo",
   "version": "1.0.0",
   "description": "QR code generator with logo support",
   "main": "dist/index.js",
@@ -32,6 +32,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chendaleiq/qrcode-logo.git"
+    "url": "https://github.com/chendaleiq/qrcode-logo.git"
   }
 }
