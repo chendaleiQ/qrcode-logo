@@ -45,13 +45,14 @@ export async function generateQRCode(
     margin = 0,
     color = "#000000",
     background = "#FFFFFF",
-    logoSize = size * 0.25,
+    logoSize = size * 0.2, // 减小 logo 的默认大小
   } = options;
 
   const canvas = createCanvas(size, size);
   const ctx = canvas.getContext("2d");
   if (!ctx) throw new Error("Cannot get canvas context");
 
+  // 先绘制二维码
   await QRCode.toCanvas(canvas, text, {
     width: size,
     margin,
@@ -70,12 +71,25 @@ export async function generateQRCode(
       // 恢复默认的 SSL 验证
       process.env.NODE_TLS_REJECT_UNAUTHORIZED = '1';
       
-      const x = (size - logoSize) / 2;
-      const y = (size - logoSize) / 2;
+      // 计算 logo 的位置和大小
+      const logoMargin = size * 0.05; // logo 周围的空白区域
+      const logoAreaSize = logoSize + logoMargin * 2;
+      const x = (size - logoAreaSize) / 2;
+      const y = (size - logoAreaSize) / 2;
 
+      // 绘制白色背景
       ctx.fillStyle = "#FFFFFF";
-      ctx.fillRect(x, y, logoSize, logoSize);
-      ctx.drawImage(logo, x, y, logoSize, logoSize);
+      ctx.fillRect(x, y, logoAreaSize, logoAreaSize);
+
+      // 绘制 logo
+      const logoX = x + logoMargin;
+      const logoY = y + logoMargin;
+      ctx.drawImage(logo, logoX, logoY, logoSize, logoSize);
+
+      // 在 logo 周围添加一个细边框，提高识别率
+      ctx.strokeStyle = "#FFFFFF";
+      ctx.lineWidth = 2;
+      ctx.strokeRect(x, y, logoAreaSize, logoAreaSize);
     } catch (error) {
       console.error("Error loading logo:", error);
       // 恢复默认的 SSL 验证
